@@ -1,36 +1,10 @@
 <template>
-    <div class='main'>
-    <v-carousel v-model="model" hide-delimiters :show-arrows="false">
-      <v-carousel-item
-        v-for="(color, i) in colors"
-        :key="color"
-      >
-        <v-sheet
-          :color="color"
-          height="100%"
-          tile
-        >
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-          >
-            <div class="display-3">
-              Slide {{ i + 1 }}
-            </div>
-          </v-row>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
-        <v-row justify="space-around">
-      <v-icon @click="model--">
-        mdi-minus
-      </v-icon>
-      {{ model }}
-      <v-icon @click="model++">
-        mdi-plus
-      </v-icon>
-    </v-row>
+  <div>
+    <div class="main" v-for="color in colors" :key="color.id">
+      <h2>{{ color.title }}</h2>
+      <p>{{ color.import_datetime }}</p>
+      <v-img max-height="253" max-width="453" v-bind:src="color.image_url"></v-img>
+    </div>
   </div>
 </template>
 
@@ -38,22 +12,22 @@
 export default {
   data() {
     return {
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange',
-      ],
-      model: 0,
+      colors: [],
     };
+  },
+  async mounted() {
+    const res = await fetch(
+      'https://api.giphy.com/v1/gifs/random?api_key=xgcnvYuqk4vP1WQQtWPz6F1A0B4WHHdA',
+    );
+    const colors = await res.json();
+    this.colors = colors;
   },
 };
 </script>
 
 <style scoped>
-.main{
-  max-width: 1000px;
+.main {
+  max-width: 500px;
   justify-content: center;
   margin: 79px auto 79px;
 }
