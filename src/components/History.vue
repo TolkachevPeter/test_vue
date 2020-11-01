@@ -1,12 +1,24 @@
 <template>
-  <div class="main">
-    <div v-for="image in allHistory" :key="image.id">
-      <div class="main__container">
-      <h2>{{ image.title }}</h2>
-      <p>{{ image.import_datetime }}</p>
-      <v-img max-height="253" max-width="453" v-bind:src="image.image_url"></v-img>
-      </div>
-    </div>
+<div>
+  <v-card class="mx-auto mt-8" max-width="344" v-for="image in allHistory" :key="image.id">
+    <v-img v-bind:src="image.image_url" height="200px"></v-img>
+
+    <v-card-title>
+      {{ image.title }}
+    </v-card-title>
+
+    <v-card-subtitle>
+      {{ image.import_datetime }}
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="show = !show">
+        <v-icon>mdi-bucket</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+  </v-card>
   </div>
 </template>
 
