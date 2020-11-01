@@ -11,15 +11,23 @@ export default {
   },
   state: {
     images: [],
+    history: [],
   },
   mutations: {
-    updateImages(state, images) {
-      state.images = images;
+    updateImages(state, image) {
+      state.images = image;
+      state.history.push(image.data);
     },
   },
   getters: {
     allImages(state) {
       return state.images;
+    },
+    allHistory(state) {
+      return state.history;
+    },
+    imagesCount(state) {
+      return state.history.length;
     },
   },
 };

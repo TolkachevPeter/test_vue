@@ -1,28 +1,33 @@
 <template>
-  <v-container>
-    <v-layout row>
-      <v-flex xs12>
-        <v-card class="mx-auto" max-width="344">
-          <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px"></v-img>
-
-          <v-card-title>
-            Top western road trips
-          </v-card-title>
-
-          <v-card-subtitle>
-            1,000 miles of wonder
-          </v-card-subtitle>
-
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div class="main">
+    <div v-for="image in allHistory" :key="image.id">
+      <div class="main__container">
+      <h2>{{ image.title }}</h2>
+      <p>{{ image.import_datetime }}</p>
+      <v-img max-height="253" max-width="453" v-bind:src="image.image_url"></v-img>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {};
-  },
+  computed: mapGetters(['allHistory']),
 };
 </script>
+
+<style scoped>
+.main {
+  max-width: 500px;
+  justify-content: center;
+  text-align: center;
+  margin: 79px auto 79px;
+}
+.main__container {
+  display: flex;
+  flex-direction: row;
+  margin: 30px auto 30px;
+}
+</style>

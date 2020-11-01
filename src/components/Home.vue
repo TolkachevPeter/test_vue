@@ -6,7 +6,7 @@
       <v-img max-height="253" max-width="453" v-bind:src="image.image_url"></v-img>
     </div>
     <v-btn class='home__btn'
-    v-on:click="fetchImages" color="primary" elevation="2">Загрузить</v-btn>
+    v-on:click="fetchImages" color="primary" elevation="2">Загрузить {{ imagesCount }}</v-btn>
   </div>
 </template>
 
@@ -14,7 +14,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  computed: mapGetters(['allImages']),
+  computed: mapGetters(['allImages', 'imagesCount']),
   methods: mapActions(['fetchImages']),
   async mounted() {
     this.fetchImages();
