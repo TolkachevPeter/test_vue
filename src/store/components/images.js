@@ -18,6 +18,9 @@ export default {
       state.images = image;
       state.history.push(image.data);
     },
+    removeHistory(state, id) {
+      state.history = state.history.filter((t) => t.id !== id);
+    },
   },
   getters: {
     allImages(state) {
@@ -25,9 +28,6 @@ export default {
     },
     allHistory(state) {
       return state.history;
-    },
-    imagesCount(state) {
-      return state.history.length;
     },
   },
 };
