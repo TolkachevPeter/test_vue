@@ -1,17 +1,19 @@
 <template>
+<div>
+  <h2 class='history__name'>Главная</h2>
   <div class="main">
     <Loader v-if='loading' class="loader" />
-    <div v-else v-for="image in allImages" :key="image.id">
-      <v-img max-height="253" max-width="453" v-bind:src="image.image_url"></v-img>
-    </div>
+    <HomeImage v-else v-for="image in allImages" :key="image.id" v-bind:image="image" />
     <v-btn class='home__btn'
     v-on:click="fetchImages" color="primary" elevation="2">Загрузить</v-btn>
+  </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import Loader from '@/components/Loader.vue';
+import HomeImage from '@/components/HomeImage.vue';
 
 export default {
   computed: mapGetters(['allImages', 'loading']),
@@ -21,6 +23,7 @@ export default {
   },
   components: {
     Loader,
+    HomeImage,
   },
 };
 </script>
@@ -28,9 +31,10 @@ export default {
 <style scoped>
 .main {
   max-width: 500px;
+  min-width: 320px;
   justify-content: center;
   text-align: center;
-  margin: 79px auto 79px;
+  margin: 30px auto 79px;
   display: flex;
   flex-direction: column;
 }
@@ -41,4 +45,9 @@ export default {
 .loader {
   margin: auto;
 }
+.history__name {
+  margin-top: 67px;
+  margin-left: 65px;
+  font-size: 22px;
+  }
 </style>
