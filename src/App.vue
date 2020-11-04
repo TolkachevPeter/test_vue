@@ -30,11 +30,12 @@
       scroll-target="#scrolling-techniques-7"
     >
       <v-app-bar-nav-icon
+      class="hidden-md-and-up"
       @click='drawer = !drawer'
       ></v-app-bar-nav-icon>
 
   <v-tabs>
-    <v-tab
+    <v-tab class="hidden-sm-and-down"
   v-for='link in links'
   :key='link.title'
   :to='link.url'>{{link.title}}</v-tab>
