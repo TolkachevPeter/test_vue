@@ -1,8 +1,7 @@
 <template>
-<div class='main'>
-  <h2 class='history__name'>&larr; История</h2>
-  <HistoryCard v-for="history in allHistory"
-  :key="history.id" v-bind:history='history' />
+  <div class="main">
+    <h2 class="history__name">&larr; История</h2>
+    <HistoryCard v-for="history in allHistory" :key="history.id" v-bind:history="history" />
   </div>
 </template>
 
@@ -26,5 +25,5 @@ export default {
   margin-top: 67px;
   margin-left: 65px;
   font-size: 22px;
-  }
+}
 </style>

@@ -1,17 +1,18 @@
 <template>
-<div>
-  <v-card class="mx-auto mt-8" max-width="344">
-    <v-img v-bind:src="history.image_url" height="200px">
-      <v-btn class='card__btn' absolute icon @click="removeHistory(history.id)">
-        <v-icon >mdi-bucket</v-icon >
-      </v-btn></v-img>
-    <v-card-title>
-      {{ history.title }}
-    </v-card-title>
-    <v-card-subtitle>
-      {{ history.import_datetime }}
-    </v-card-subtitle>
-  </v-card>
+  <div>
+    <v-card class="mx-auto mt-8" max-width="344">
+      <v-img v-bind:src="history.image_url" height="200px">
+        <v-btn class="card__btn" absolute icon @click="removeHistory(history.id)">
+          <v-icon>mdi-bucket</v-icon>
+        </v-btn></v-img
+      >
+      <v-card-title>
+        {{ history.title }}
+      </v-card-title>
+      <v-card-subtitle>
+        {{ history.import_datetime }}
+      </v-card-subtitle>
+    </v-card>
   </div>
 </template>
 

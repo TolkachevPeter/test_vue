@@ -1,12 +1,13 @@
 <template>
-<div>
-  <h2 class='history__name'>Главная</h2>
-  <div class="main">
-    <Loader v-if='loading' class="loader" />
-    <HomeImage v-else v-for="image in allImages" :key="image.id" v-bind:image="image" />
-    <v-btn class='home__btn'
-    v-on:click="fetchImages" color="primary" elevation="2">Загрузить</v-btn>
-  </div>
+  <div>
+    <h2 class="history__name">Главная</h2>
+    <div class="main">
+      <Loader v-if="loading" class="loader" />
+      <HomeImage v-else v-for="image in allImages" :key="image.id" v-bind:image="image" />
+      <v-btn class="home__btn" v-on:click="fetchImages" color="primary" elevation="2"
+        >Загрузить</v-btn
+      >
+    </div>
   </div>
 </template>
 
@@ -49,5 +50,5 @@ export default {
   margin-top: 67px;
   margin-left: 65px;
   font-size: 22px;
-  }
+}
 </style>
