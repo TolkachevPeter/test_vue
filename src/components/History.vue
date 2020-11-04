@@ -1,19 +1,19 @@
 <template>
 <div class='main'>
   <h2 class='history__name'>&larr; История</h2>
-  <History v-for="history in allHistory"
+  <HistoryCard v-for="history in allHistory"
   :key="history.id" v-bind:history='history' />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import History from '@/components/HistoryCard.vue';
+import HistoryCard from '@/components/HistoryCard.vue';
 
 export default {
   computed: mapGetters(['allHistory']),
   components: {
-    History,
+    HistoryCard,
   },
 };
 </script>
