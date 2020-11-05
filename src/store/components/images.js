@@ -38,5 +38,8 @@ export default {
     loading(state) {
       return state.loading;
     },
+    pages(state) {
+      return Math.ceil(state.history.length / 5);
+    },
   },
 };
